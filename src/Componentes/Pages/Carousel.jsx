@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Image1 from "../../assets/9.jpeg";
-import { title } from "motion/react-client";
 
 export const Carousel3DY = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const radius = 800;
   const angleStep = 360 / cards.length;
@@ -17,13 +18,17 @@ export const Carousel3DY = ({ cards }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       rotateCarousel(currentIndex + 1);
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
+  const handleCardClick = () => {
+    navigate(`/product/${cards[currentIndex].title.toLowerCase().replace(/\s+/g, '-')}`);
+  };
+
   return (
     <div
-      className="w-full h-[600px] flex flex-col items-center justify-center  overflow-hidden"
+      className="w-full h-[600px] flex flex-col items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `url(${Image1})`,
         backgroundSize: "cover",
@@ -58,14 +63,18 @@ export const Carousel3DY = ({ cards }) => {
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="w-full h-full rounded-2xl overflow-hidden shadow-xl bg-white"
+                  className="w-full h-full rounded-2xl overflow-hidden shadow-xl bg-white cursor-pointer"
+                  onClick={() => handleCardClick(card.path)}
                 >
                   <img
                     src={card.src}
                     alt={card.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 text-center">
+                  <div
+                    className="absolute bottom-0 left-0 right-0 text-white p-3 text-center"
+                    style={{ backgroundColor: "#1A3446" }}
+                  >
                     {card.title}
                   </div>
                 </motion.div>

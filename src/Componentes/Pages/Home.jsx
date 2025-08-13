@@ -10,84 +10,90 @@ import Image7 from "../../assets/26.jpg";
 import Image8 from "../../assets/27.jpg";
 import ClassicImage from "./ClassicImage";
 import AboutSection from "./AboutSection";
+import FeaturesSection from "./FeaturesSection";
+import FeatureSection from "./FeatureSection";
+import WindowFilem from "./WindowFilem";
+import InstagramCarousel from "./InstagramCarousel";
+import Testimonials from "./Testimonials";
+import FeaturedProducts from "../FeaturedProducts";
 const cards = [
   {
-    title: "THE PRINT POETRY",
+    title: "Transparent Glass Films",
     src: Image1,
     content: "Amber Solutions provides cutting-edge technology...",
   },
   {
-    title: "Digital Innovation",
+    title: "Transparent Glass Films",
     src: Image2,
     content: "We help companies transform ideas into products...",
   },
   {
-    title: "Tech Solutions",
+    title: "Frosted Glass Films",
     src: Image3,
     content: "Our team specializes in delivering tech solutions...",
   },
   {
-    title: "Future Tech",
+    title: "Frosted Glass Films",
     src: Image4,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "Transformative Tech",
+    title: "Printed Glass Films",
     src: Image5,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "Innovative Solutions",
+    title: "Printed Glass Films",
     src: Image6,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "Tech Trends",
+    title: "Opaque Glass Films",
     src: Image7,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "Tech Trends",
+    title: "Transparent Glass Films",
     src: Image8,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "path to the future",
+    title: "Transparent Glass Films",
     src: Image1,
     content: "Exploring the future of technology and innovation...",
   },
    {
-    title: "path to the future",
+    title: "THE TRANSPARENT TALES",
     src: Image2,
     content: "Exploring the future of technology and innovation...",
   },
       {
-    title: "path to the future",
+    title: "Frosted Glass Films",
     src: Image3,
     content: "Exploring the future of technology and innovation...",
   },
   {
-    title: "Future Tech",
+    title: "Frosted Glass Films",
     src: Image2,
     content: "Exploring the future of technology and innovation...",
   },
   {
-    title: "Future Tech",
+    title: "Printed Glass Films",
     src: Image4,
     content: "Exploring the future of technology and innovation...",
   },
   {
-    title: "Future Tech",
+    title: "Printed Glass Films",
     src: Image5,
     content: "Exploring the future of technology and innovation...",
   },
   {
-    title: "print poetry",
+    title: "Printed Glass Films",
     src: Image6,
     content: "Exploring the future of technology and innovation...",
   },
   {
-    title: "pseudo future",
+    title: "Opaque Glass Films",
     src: Image7,
     content: "Exploring the future of technology and innovation...",
   },
@@ -99,6 +105,12 @@ const Home = () => {
     <Carousel3DY cards={cards} />
     <AboutSection />
     <ClassicImage />
+    <FeaturedProducts />
+    <FeaturesSection />
+    <WindowFilem />
+   <FeatureSection />
+    <InstagramCarousel />
+    <Testimonials />
     </>
   );
 };

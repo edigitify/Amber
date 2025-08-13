@@ -6,7 +6,11 @@ import Products from './Componentes/Pages/Products'
 import Contact from './Componentes/Pages/Contact'
 import Partner from './Componentes/Pages/Partner'
 import './App.css'
-
+import Footer from './Componentes/Pages/Footer';
+import PrintedGlass from './Componentes/Pages/Printed';
+import Transperent from './Componentes/Pages/Transperent';
+import Opake from './Componentes/Pages/Opake';
+import Frosted from './Componentes/Pages/GlassFilmsBanner';
 function App() {
   return (
     <Router>
@@ -16,12 +20,17 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/packages" element={<Products />} />
+            <Route path="/product" element={<Products />}>
+              {/* <Route path="/printed-glass-films" element={<PrintedGlass />} />  */}
+              {/* <Route path="/transperent-glass-films" element={<Transperent />} /> */}
+              {/* <Route path="/opaque-glass-films" element={<Opake />} />  */}
+              {/* <Route path="/frosted-glass-films" element={<Frosted />} /> */}
+            </Route>
             <Route path="/contact" element={<Contact />} />
             <Route path="/partner" element={<Partner />} />
           </Routes>
         </main>
-        
+        <Footer />
       </div>
     </Router>
   )

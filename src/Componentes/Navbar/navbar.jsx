@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo1.png";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -12,9 +12,9 @@ const Navbar = () => {
   return (
     <nav
       className="shadow-lg sticky top-0 z-50 text-xl transparent"
-      style={{ backgroundColor: "#1A3446" }}
+     
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-0">
         <div className="flex flex-col items-center py-4 relative">
           {/* Logo - Centered on full screen */}
           <div className="flex items-center mb-4">
@@ -23,7 +23,7 @@ const Navbar = () => {
                 src={Logo}
                 alt="Amber Logo"
                 className="h-16 md:h-20 lg:h-24"
-              />
+              /> 
             </Link>
           </div>
 
@@ -34,8 +34,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200 border-b-2 border-transparent"
+                    ? "text-sky-700 border-b-2 border-sky-700"
+                    : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
             >
@@ -54,7 +54,7 @@ const Navbar = () => {
               ABOUT US
             </NavLink>
             <NavLink
-              to="/packages"
+              to="/product"
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive

@@ -1,6 +1,7 @@
-import React from 'react'
+import React ,{useState}from 'react'
 
 const Partner = () => {
+  const [fileName, setFileName] = useState("");
   const benefits = [
     {
       title: "Revenue Growth",
@@ -24,15 +25,21 @@ const Partner = () => {
     }
   ]
 
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-sky-800 mb-6">
             Partner With Us
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our network of successful partners and grow your business with Amber's 
+          <p className="text-xl text-sky-800 max-w-3xl mx-auto">
+            Join our network of successful partners and grow your business with Amber's
             innovative solutions and comprehensive support.
           </p>
         </div>
@@ -42,8 +49,8 @@ const Partner = () => {
           {benefits.map((benefit, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-              <p className="text-gray-600">{benefit.description}</p>
+              <h3 className="text-xl font-semibold text-sky-800 mb-2">{benefit.title}</h3>
+              <p className="text-sky-800">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -57,36 +64,36 @@ const Partner = () => {
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Apply</h3>
-              <p className="text-gray-600">Submit your partnership application and tell us about your business</p>
+              <p className="text-sky-800">Submit your partnership application and tell us about your business</p>
             </div>
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Onboard</h3>
-              <p className="text-gray-600">Complete training and get access to our partner resources</p>
+              <p className="text-sky-800">Complete training and get access to our partner resources</p>
             </div>
             <div className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">Grow</h3>
-              <p className="text-gray-600">Start selling and earning commissions with our support</p>
+              <p className="text-sky-800">Start selling and earning commissions with our support</p>
             </div>
           </div>
         </div>
 
         {/* Partnership Form */}
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Become a Partner</h2>
-          <p className="text-lg text-gray-600 mb-8 text-center">
+          <h2 className="text-3xl font-bold text-sky-800 mb-6 text-center">Become a Partner</h2>
+          <p className="text-lg text-sky-800 mb-8 text-center">
             Ready to join our partner network? Fill out the form below and we'll get back to you within 24 hours.
           </p>
-          
+
           <form className="max-w-2xl mx-auto space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                <label className="block text-sm font-medium text-sky-800 mb-2">Company Name</label>
                 <input
                   type="text"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -94,7 +101,7 @@ const Partner = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Contact Person</label>
+                <label className="block text-sm font-medium text-sky-800 mb-2">Contact Person</label>
                 <input
                   type="text"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -102,7 +109,7 @@ const Partner = () => {
                 />
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
@@ -120,8 +127,41 @@ const Partner = () => {
                   required
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  GST Number
+                </label>
+                <input
+                  type="text"
+                  pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$"
+                  title="Enter a valid 15-character GST Number (e.g., 22AAAAA0000A1Z5)"
+                  maxLength="15"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent uppercase"
+                  required
+                />
+              </div>
+
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Upload Visiting Card
+                </label>
+
+                <label className="flex items-center justify-center w-full px-4 py-3 bg-white text-gray-500 border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="file"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    className="hidden"
+                    onChange={handleFileChange}
+                  />
+                  <span className="text-sm">
+                    {fileName ? fileName : "Choose file (JPG, PNG, or PDF)"}
+                  </span>
+                </label>
+              </div>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Company Description</label>
               <textarea
@@ -131,7 +171,9 @@ const Partner = () => {
                 required
               />
             </div>
-            
+
+
+
             <div className="text-center">
               <button
                 type="submit"

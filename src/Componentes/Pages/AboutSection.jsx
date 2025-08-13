@@ -1,7 +1,12 @@
 import React from "react";
 import OfficeImage from "../../assets/3.png"; 
-
+import { useNavigate } from "react-router-dom";
 const AboutSection = () => {
+  const navigate = useNavigate();
+  const handleDiscoverMore = () => {
+    navigate("/about");
+     window.scrollTo(0, 0);
+  };
   return (
     <section className="w-full bg-white py-12 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
@@ -22,7 +27,7 @@ const AboutSection = () => {
             and deeply personal.
           </p>
 
-          <button className="bg-slate-500 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:bg-slate-600 transition duration-300">
+          <button className="bg-slate-500 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:bg-slate-600 transition duration-300" onClick={handleDiscoverMore}>
             DISCOVER MORE
           </button>
         </div>

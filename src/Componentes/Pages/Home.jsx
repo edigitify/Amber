@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel3DY} from "../Pages/Carousel";
+import Carousel3DY from "../Pages/Carousel";
 import Image1 from "../../assets/20.jpg";
 import Image2 from "../../assets/21.jpg";
 import Image3 from "../../assets/22.jpg";

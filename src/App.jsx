@@ -20,12 +20,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/product" element={<Products />}>
-              {/* <Route path="/printed-glass-films" element={<PrintedGlass />} />  */}
-              {/* <Route path="/transperent-glass-films" element={<Transperent />} /> */}
-              {/* <Route path="/opaque-glass-films" element={<Opake />} />  */}
-              {/* <Route path="/frosted-glass-films" element={<Frosted />} /> */}
-            </Route>
+            <Route path="/product" element={<Products />} />
+            <Route path="/printed" element={<PrintedGlass />} />
+            <Route path="/transparent" element={<Transperent />} />
+            <Route path="/opaque" element={<Opake />} />
+            <Route path="/frosted" element={<Frosted />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/partner" element={<Partner />} />
           </Routes>

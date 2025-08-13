@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Image1 from "../../assets/9.jpeg";
 
-export const Carousel3DY = ({ cards }) => {
+ const Carousel3DY = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -22,8 +22,25 @@ export const Carousel3DY = ({ cards }) => {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  const handleCardClick = () => {
-    navigate(`/product/${cards[currentIndex].title.toLowerCase().replace(/\s+/g, '-')}`);
+  const handleCardClick = (card) => {
+    // Map card titles to existing routes
+    const title = card.title.toLowerCase();
+    
+    console.log('Card clicked:', card.title, 'Route:', title);
+    
+    if (title.includes('transparent') || title.includes('transparent tales')) {
+      navigate('/transparent');
+    } else if (title.includes('frosted')) {
+      navigate('/frosted');
+    } else if (title.includes('printed')) {
+      navigate('/printed');
+    } else if (title.includes('opaque')) {
+      navigate('/opaque');
+    } else {
+      // Default fallback to products page
+      console.log('No matching route found, navigating to /product');
+      navigate('/product');
+    }
   };
 
   return (
@@ -64,7 +81,7 @@ export const Carousel3DY = ({ cards }) => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="w-full h-full rounded-2xl overflow-hidden shadow-xl bg-white cursor-pointer"
-                  onClick={() => handleCardClick(card.path)}
+                  onClick={() => handleCardClick(card)}
                 >
                   <img
                     src={card.src}
@@ -86,3 +103,5 @@ export const Carousel3DY = ({ cards }) => {
     </div>
   );
 };
+
+export default Carousel3DY;

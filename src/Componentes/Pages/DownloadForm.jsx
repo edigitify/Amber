@@ -1,10 +1,5 @@
-// DownloadForm.jsx
 import React, { useState } from "react";
-
 const DownloadForm = ({ id, label, bgImage, pdfFile }) => {
-
-console.log("DownloadForm rendered with id:", id, "label:", label, "bgImage:", bgImage, "pdfFile:", pdfFile);
-
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",

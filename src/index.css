@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* Custom CSS classes for 3D transforms */
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.hover\:rotate-y-6:hover {
+  transform: rotateY(6deg);
+}
+
+.hover\:rotate-x-3:hover {
+  transform: rotateX(3deg);
+}
+
+.perspective {
+  perspective: 1000px;
+}

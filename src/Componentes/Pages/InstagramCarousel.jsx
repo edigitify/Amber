@@ -13,29 +13,29 @@ const images = [
   "/images/img6.jpg",
 ];
 
-const  InstagramCarousel = ()=> {
+const InstagramCarousel = () => {
   return (
-    <div className="bg-gray-50 py-8">
+    <div className="py-8" style={{ backgroundColor: "#1A3446" }}>
       <div className="max-w-7xl mx-auto px-4">
-        {/* Heading */}
+
         <h2 className="text-2xl font-semibold mb-6">
           Glass Films on Instagram
         </h2>
 
-        {/* Swiper Carousel */}
+
         <Swiper
           modules={[Pagination, Autoplay]}
           spaceBetween={20}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 2000, // 2 seconds
-            disableOnInteraction: false, // keep autoplay after user interaction
+            delay: 2000,
+            disableOnInteraction: false,
           }}
           loop={true}
           breakpoints={{
-            320: { slidesPerView: 1.3 }, // Mobile
-            640: { slidesPerView: 2.5 }, // Tablet
-            1024: { slidesPerView: 4.5 }, // Desktop
+            320: { slidesPerView: 1.3 },
+            640: { slidesPerView: 2.5 },
+            1024: { slidesPerView: 4.5 },
           }}
         >
           {images.map((src, index) => (

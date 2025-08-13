@@ -24,8 +24,10 @@ import CartImage7 from "../../assets/Card/8.jpg";
 import CartImage8 from "../../assets/Card/9.jpg";
 import CartImage9 from "../../assets/Card/10.jpg";
 import CartImage10 from "../../assets/Card/11.jpg";
+import CartImage11 from "../../assets/Card/11.jpg";
 import DownloadForm from "./DownloadForm";
 import TransparentImg from "../../assets/transparent.jpg";
+import FrostedPdf from "../../Data.js/AMBER FROSTED.pdf";
 
 
 const brassShades = [
@@ -93,7 +95,7 @@ const GlassFilmsBanner = () => {
                     </div>
                 </div>
             )}
-            <DownloadForm id="frosted" label="" bgImage={TransparentImg} pdfFile="/opaque.pdf"/>
+            <DownloadForm id="frosted" label="" bgImage={TransparentImg} pdfFile={FrostedPdf}/>
         </div>
 
     );

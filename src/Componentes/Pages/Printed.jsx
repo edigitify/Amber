@@ -25,6 +25,7 @@ import CartImage10 from "../../assets/Printed/image/11-5.png";
 import CartImage11 from "../../assets/Printed/image/12-5.png";
 import DownloadForm from './DownloadForm';
 import PrintedImg from "../../assets/printed.jpg";
+import PrintedPdf from "../../Data.js/AMBER FILMS PRINTED .pdf";
 const brassShades = [
     { id: 1, img: Image, large: CartImage },
     { id: 2, img: Image1, large: CartImage1 },
@@ -88,7 +89,7 @@ const Printed = () => {
                     </div>
                 </div>
             )}
-            <DownloadForm id="printed" label={Printed} bgImage={PrintedImg}/>
+            <DownloadForm id="printed" label="Printed" bgImage={PrintedImg} pdfFile={PrintedPdf}/>
         </div>
     );
 }

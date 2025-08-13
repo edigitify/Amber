@@ -137,7 +137,7 @@ const Navbar = () => {
                 ABOUT US
               </Link>
               <Link
-                to="/packages"
+                to="/product"
                 className="block px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

@@ -25,6 +25,7 @@ import CartImage9 from "../../assets/opakeCard/image/10-3.png";
 import CartImage10 from "../../assets/opakeCard/image/11-3.png";
 import CartImage11 from "../../assets/opakeCard/image/12-3.png";
 import OpaqueImg from "../../assets/opaqu.jpg";
+import OpaquePdf from "../../Data.js/AMBER FILMS OPQAUE.pdf";
 const brassShades = [
     { id: 1, img: Image, large: CartImage },
     { id: 2, img: Image1, large: CartImage1 },
@@ -89,7 +90,7 @@ const Opake = () => {
                     </div>
                 </div>
             )}
-            <DownloadForm id="opaque" label="Opaque" bgImage={OpaqueImg} pdfFile="/opaque.pdf" />
+            <DownloadForm id="opaque" label="Opaque" bgImage={OpaqueImg} pdfFile={OpaquePdf} />
         </div>
     );
 }

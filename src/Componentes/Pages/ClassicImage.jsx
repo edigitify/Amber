@@ -24,10 +24,10 @@ const ClassicImage = () => {
       style={{ backgroundColor: "#1A3446" }}
     >
       <div
-        className="min-h-[600px] p-6 flex flex-col justify-center items-center"
+        className="min-h-[600px] p-6 flex flex-col justify-center items-start text-left"
         style={{ backgroundColor: "#1A3446" }}
       >
-        <h1 className="text-white text-7xl font-semibold">Hold and drag</h1>
+        <h1 className="text-white text-7xl font-semibold">Hold & drag</h1>
         <h2 className="text-white text-7xl">to see the magic</h2>
       </div>
 

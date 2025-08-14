@@ -23,10 +23,12 @@ const ClassicImage = () => {
       className="min-h-[600px] p-6 flex justify-center items-center"
       style={{ backgroundColor: "#1A3446" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-        <p className="text-white text-7xl font-semibold">Hold and drag </p>
-        <br />
-        <p className="text-white text-7xl">to see the magic</p>
+      <div
+        className="min-h-[600px] p-6 flex flex-col justify-center items-center"
+        style={{ backgroundColor: "#1A3446" }}
+      >
+        <h1 className="text-white text-7xl font-semibold">Hold and drag</h1>
+        <h2 className="text-white text-7xl">to see the magic</h2>
       </div>
 
       <div
@@ -42,8 +44,6 @@ const ClassicImage = () => {
           className="absolute top-0 left-0 w-full h-full object-cover z-10 pointer-events-none"
         />
 
-        {/* Slider Handle */}
-        {/* Slider Handle */}
         <div
           onMouseDown={(e) => e.preventDefault()}
           onTouchStart={(e) => e.preventDefault()}

@@ -24,81 +24,101 @@ import CartImage7 from "../../assets/Card/8.jpg";
 import CartImage8 from "../../assets/Card/9.jpg";
 import CartImage9 from "../../assets/Card/10.jpg";
 import CartImage10 from "../../assets/Card/11.jpg";
-import CartImage11 from "../../assets/Card/11.jpg";
+import CartImage11 from "../../assets/Card/12.jpg";
 import DownloadForm from "./DownloadForm";
-import TransparentImg from "../../assets/transparent.jpg";
+import FrostedImg from "../../assets/forested.jpg";
 import FrostedPdf from "../../Data.js/AMBER FROSTED.pdf";
 
-
 const brassShades = [
-    { id: 1, img: Image, large: CartImage },
-    { id: 2, img: Image1, large: CartImage1 },
-    { id: 3, img: Image2, large: CartImage2 },
-    { id: 4, img: Image3, large: CartImage3 },
-    { id: 5, img: Image4, large: CartImage4 },
-    { id: 6, img: Image5, large: CartImage5 },
-    { id: 7, img: Image6, large: CartImage6 },
-    { id: 8, img: Image7, large: CartImage7 },
-    { id: 9, img: Image8, large: CartImage8 },
-    { id: 10, img: Image9, large: CartImage9 },
-    { id: 11, img: Image10, large: CartImage10 },
-    { id: 12, img: Image11, large: CartImage },
+  { id: 1, img: Image, large: CartImage },
+  { id: 2, img: Image1, large: CartImage1 },
+  { id: 3, img: Image2, large: CartImage2 },
+  { id: 4, img: Image3, large: CartImage3 },
+  { id: 5, img: Image4, large: CartImage4 },
+  { id: 6, img: Image5, large: CartImage5 },
+  { id: 7, img: Image6, large: CartImage6 },
+  { id: 8, img: Image7, large: CartImage7 },
+  { id: 9, img: Image8, large: CartImage8 },
+  { id: 10, img: Image9, large: CartImage9 },
+  { id: 11, img: Image10, large: CartImage10 },
+  { id: 12, img: Image11, large: CartImage11 },
 ];
 
 const GlassFilmsBanner = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    return (
+  function getStartIndexOfSecondRow() {
+    if (window.innerWidth >= 1024) return 6; // lg:grid-cols-6
+    if (window.innerWidth >= 640) return 3; // sm:grid-cols-3
+    return 2; // grid-cols-2
+  }
 
-        <div className="min-h-96 bg-white px-4 sm:px-6 lg:px-8 py-10">
-            {/* Title */}
-            <h1 className="text-center text-2xl sm:text-3xl font-semibold mb-10 text-sky-800">
-                Frosted Glass Films
-            </h1>
+  function getEndIndexOfSecondRow() {
+    return getStartIndexOfSecondRow() * 2;
+  }
 
-            {/* Responsive Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-6 perspective">
-                {brassShades.map((shade) => (
-                    <div
-                        key={shade.id}
-                        className="bg-white rounded-xl p-4 cursor-pointer transform-style-preserve-3d hover:rotate-y-6 hover:rotate-x-3 transition-transform duration-100"
-                        onClick={() => setSelectedImage(shade.large)}
-                    >
-                        <img
-                            src={shade.img}
-                            alt={`Brass shade ${shade.id}`}
-                            className="w-full h-48 object-contain rounded-lg"
-                        />
-                    </div>
-                ))}
-            </div>
+  return (
+    <div className="min-h-96 bg-white px-4 sm:px-6 lg:px-8 py-10">
+      {/* Title */}
+      <h1 className="text-center text-2xl sm:text-3xl font-semibold mb-10 text-sky-800">
+        Frosted Glass Films
+      </h1>
 
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-6 perspective">
+        {brassShades.map((shade, index) => (
+          <div
+            key={shade.id}
+            className={`
+        bg-white rounded-xl p-4 cursor-pointer transform-style-preserve-3d
+        hover:rotate-y-6 hover:rotate-x-3 transition-transform duration-100
+        ${
+          index >= getStartIndexOfSecondRow() &&
+          index < getEndIndexOfSecondRow()
+            ? "blur-[2px]"
+            : ""
+        }
+      `}
+            onClick={() => setSelectedImage(shade.large)}
+          >
+            <img
+              src={shade.img}
+              alt={`Brass shade ${shade.id}`}
+              className="w-full h-48 object-contain rounded-lg"
+            />
+          </div>
+        ))}
+      </div>
 
-            {/* Modal */}
-            {selectedImage && (
-                <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-                    <div className="relative w-full px-4 flex justify-center">
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 z-50"
-                        >
-                            &times;
-                        </button>
+      {/* Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div className="relative w-full px-4 flex justify-center">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 z-50"
+            >
+              &times;
+            </button>
 
-                        {/* Large Image */}
-                        <img
-                            src={selectedImage}
-                            alt="Selected Brass Shade"
-                            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-lg"
-                        />
-                    </div>
-                </div>
-            )}
-            <DownloadForm id="frosted" label="" bgImage={TransparentImg} pdfFile={FrostedPdf}/>
+            {/* Large Image */}
+            <img
+              src={selectedImage}
+              alt="Selected Brass Shade"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-lg"
+            />
+          </div>
         </div>
-
-    );
+      )}
+      <DownloadForm
+        id="frosted"
+        label=""
+        bgImage={FrostedImg}
+        pdfFile={FrostedPdf}
+      />
+    </div>
+  );
 };
 
 export default GlassFilmsBanner;

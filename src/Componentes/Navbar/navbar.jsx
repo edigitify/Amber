@@ -1,40 +1,56 @@
 import Logo from "../../assets/logo1.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav
-      className="shadow-lg sticky top-0 z-50 text-xl transparent"
-     
-    >
+    <nav className="shadow-lg sticky top-0 z-50 text-xl transparent">
       <div className="max-w-7xl mx-auto px-0">
         <div className="flex flex-col items-center py-4 relative">
-          {/* Logo - Centered on full screen */}
+          {/* Logo */}
           <div className="flex items-center mb-4">
             <Link to="/" className="flex items-center">
               <img
                 src={Logo}
                 alt="Amber Logo"
                 className="h-16 md:h-20 lg:h-24"
-              /> 
+              />
             </Link>
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex space-x-6 lg:space-x-8">
+          <div
+            className={`hidden md:flex space-x-6 lg:space-x-8 rounded-2xl transition-all duration-300
+            ${isScrolled
+              ? "shadow-lg bg-white/30 backdrop-blur-md border border-white/40"
+              : "bg-transparent"
+            }`}
+          >
             <NavLink
               to="/"
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-sky-700 border-b-2 border-sky-700"
+                    ? "text-sky-800 border-b-2 border-sky-700"
                     : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
@@ -46,8 +62,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200 border-b-2 border-transparent"
+                    ? "text-sky-800 border-b-2 border-sky-900"
+                    : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
             >
@@ -58,34 +74,32 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200 border-b-2 border-transparent"
+                    ? "text-sky-800 border-b-2 border-sky-900"
+                    : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
             >
               PRODUCTS
             </NavLink>
-
             <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200 border-b-2 border-transparent"
+                    ? "text-sky-800 border-b-2 border-sky-900"
+                    : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
             >
               CONTACT US
             </NavLink>
-
             <NavLink
               to="/partner"
               className={({ isActive }) =>
                 `font-medium text-sm lg:text-base hover:text-white transition-colors ${
                   isActive
-                    ? "text-white border-b-2 border-white"
-                    : "text-gray-200 border-b-2 border-transparent"
+                    ? "text-sky-800 border-b-2 border-sky-900"
+                    : "text-sky-800 border-b-2 border-transparent"
                 }`
               }
             >
@@ -114,8 +128,6 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-
-          {/* CTA Button */}
         </div>
 
         {/* Mobile Navigation */}

@@ -1,7 +1,7 @@
 import Logo from "../../assets/logo1.png";
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+// import Image1 from "../../assets/9.jpeg";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,7 +23,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="shadow-lg sticky top-0 z-50 text-xl transparent">
+    <nav className={`shadow-lg sticky top-0 z-50 text-xl transparent
+      ${isScrolled
+              ? "shadow-lg bg-white/30 backdrop-blur-md border border-white/40"
+              : "bg-transparent"
+            }
+      `}
+    
+    // style={{
+    //     backgroundImage: `url(${Image1})`,
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center",
+    //   }}
+    >
       <div className="max-w-7xl mx-auto px-0">
         <div className="flex flex-col items-center py-4 relative">
           {/* Logo */}
@@ -40,10 +52,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div
             className={`hidden md:flex space-x-6 lg:space-x-8 rounded-2xl transition-all duration-300
-            ${isScrolled
-              ? "shadow-lg bg-white/30 backdrop-blur-md border border-white/40"
-              : "bg-transparent"
-            }`}
+            `}
           >
             <NavLink
               to="/"

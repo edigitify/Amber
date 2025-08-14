@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Image1 from "../../assets/9.jpeg";
+// import Image1 from "../../assets/9.jpeg";
 
  const Carousel3DY = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,11 +46,11 @@ import Image1 from "../../assets/9.jpeg";
   return (
     <div
       className="w-full h-[600px] flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `url(${Image1})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      // style={{
+      //   backgroundImage: `url(${Image1})`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      // }}
     >
       {/* 3D Scene */}
       <div
